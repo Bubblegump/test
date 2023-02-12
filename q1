@@ -1,0 +1,9 @@
+Console.WriteLine("Enter Value of Keys Press(N)");
+int N = Convert.ToInt32(Console.ReadLine());
+bool action;
+for (int i = 0; i < N; i++)
+{
+    action = isTooSweet(i);
+    if (action == true)
+    { Console.WriteLine("the first number of teaspoons of sugar that will make your cake too sweet is:", i); }
+}
