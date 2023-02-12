@@ -1,0 +1,111 @@
+using System;
+using System.Xml.XPath;
+
+namespace ConsoleApp1;
+
+    public class FieldDistance
+    {
+        public FieldDistance()
+        {
+        }
+
+    public int calmaxdistance(int[] fields, int[] towers)
+    {
+        //{1, 1, 2, 3, 4, 4}
+        int towerhighest = towers[towers.Length - 1];
+      
+        int Smallest = fields.Min();
+        int result = 0;
+        int largest=fields.Max();   
+     
+            if (fields.Contains(towerhighest))
+            {
+                int pos = Array.IndexOf(fields, towerhighest);
+            Smallest = fields[pos - 1];
+
+            }
+            else
+            {
+               
+              
+                foreach (int i in fields)
+                {
+                    if (i > Smallest && i < towerhighest && i<largest)
+                    {
+                        Smallest = i;
+                    }
+                }
+
+            }
+
+        result = Math.Abs(Smallest - towerhighest);
+      
+        return result;
+    }
+
+    public bool IsEmpty(int[] fields, int[] towers)
+    {
+        if (fields.Length == 0 || towers.Length == 0)
+            return true;
+
+        return false;
+    }
+
+    public bool MaxPower(int[] fields, int[] towers)
+    {
+        foreach (var item in fields)
+        {
+            if (item > Math.Pow(10, 9))
+            {
+                return false;
+            }
+
+        }
+
+        foreach (var item in towers)
+        {
+            if (item > Math.Pow(10, 9))
+            {
+                return false;
+            }
+
+        }
+
+
+
+
+        return true;
+
+      
+    }
+    public bool NonNegativeInteger (int[] fields, int[] towers)
+    {
+        foreach (var item in fields)
+        {
+            if (item <0)
+            {
+                return false;
+            }
+
+        }
+
+        foreach (var item in towers)
+        {
+            if (item < 0)
+            {
+                return false;
+            }
+
+        }
+
+
+
+
+        return true;
+
+
+    }
+
+
+
+}
